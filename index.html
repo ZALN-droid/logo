@@ -2,79 +2,73 @@
 <html>
 <head>
 <style>
-
 body{
     margin:0;
     height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     background:white;
     overflow:hidden;
 }
 
-/* TRUE CENTER ANCHOR */
 .scene{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    width:600px;
-    height:300px;
+    position:relative;
+    width:800px;
+    height:500px;
 }
 
-/* PIECES */
-.piece{
+/* Invisible containers */
+.left-piece,
+.right-piece{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
 }
 
-.piece img{
-    width:300px;
+.left-piece{
+    animation:slideLeft 2s forwards;
+}
+
+.right-piece{
+    animation:slideRight 2s forwards;
+}
+
+/* PNG images */
+.left-piece img,
+.right-piece img{
+    width:350px;
     display:block;
 }
 
-/* LEFT PIECE */
-.left{
-    right:50%; /* anchor from center going left */
-    animation:moveLeft 2s forwards ease;
-}
-
-/* RIGHT PIECE */
-.right{
-    left:50%; /* anchor from center going right */
-    animation:moveRight 2s forwards ease;
-}
-
-/* FINAL POSITIONS */
-@keyframes moveLeft{
+@keyframes slideLeft{
     from{
-        transform:translate(200%, -50%);
+        left:-400px;
     }
     to{
-        transform:translate(0%, -50%);
+        left:180px; /* Adjust this */
     }
 }
 
-@keyframes moveRight{
+@keyframes slideRight{
     from{
-        transform:translate(-200%, -50%);
+        left:900px;
     }
     to{
-        transform:translate(0%, -50%);
+        left:320px; /* Adjust this */
     }
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="scene">
 
-    <div class="piece left">
+    <div class="left-piece">
         <img src="left.png">
     </div>
 
-    <div class="piece right">
+    <div class="right-piece">
         <img src="right.png">
     </div>
 
