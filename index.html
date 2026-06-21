@@ -1,90 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Logo Assembly</title>
-
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    width:100vw;
+    margin:0;
     height:100vh;
-    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     background:white;
+    overflow:hidden;
 }
 
-/* Final assembled logo area */
-.logo{
+.scene{
+    position:relative;
+    width:800px;
+    height:500px;
+}
+
+/* Invisible containers */
+.left-piece,
+.right-piece{
     position:absolute;
     top:50%;
-    left:50%;
-    width:500px;   /* width of completed shape */
-    height:250px;  /* height of completed shape */
-    transform:translate(-50%,-50%);
+    transform:translateY(-50%);
 }
 
-/* Common image styling */
-.logo img{
-    position:absolute;
-    top:0;
-    height:250px;
-    object-fit:contain;
+.left-piece{
+    animation:slideLeft 2s forwards;
 }
 
-/* LEFT PIECE */
-.left{
-    width:200px;
-
-    /* Final position */
-    left:0;
-
-    /* Start off-screen */
-    transform:translateX(-1200px);
-
-    animation:slideLeft 2s ease-out forwards;
+.right-piece{
+    animation:slideRight 2s forwards;
 }
 
-/* RIGHT PIECE */
-.right{
+/* PNG images */
+.left-piece img,
+.right-piece img{
     width:350px;
-    border: 1px solid red
-
-    /* Final position */
-    left:150px;
-
-    /* Start off-screen */
-    transform:translateX(1200px);
-
-    animation:slideRight 2s ease-out forwards;
+    display:block;
 }
 
 @keyframes slideLeft{
+    from{
+        left:-400px;
+    }
     to{
-        transform:translateX(0);
+        left:180px; /* Adjust this */
     }
 }
 
 @keyframes slideRight{
+    from{
+        left:900px;
+    }
     to{
-        transform:translateX(0);
+        left:320px; /* Adjust this */
     }
 }
-
 </style>
 </head>
-
 <body>
 
-<div class="logo">
-    <img src="left.png" class="left" alt="">
-    <img src="right.png" class="right" alt="">
+<div class="scene">
+
+    <div class="left-piece">
+        <img src="left.png">
+    </div>
+
+    <div class="right-piece">
+        <img src="right.png">
+    </div>
+
 </div>
 
 </body>
