@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triangle Reveal</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        background:white;
+        overflow:hidden;
+        width:100vw;
+        height:100vh;
+    }
+
+    .container{
+        position:relative;
+        width:100%;
+        height:100%;
+    }
+
+    .piece{
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        width:250px;   /* Adjust size */
+        height:250px;
+        object-fit:contain;
+    }
+
+    .left{
+        left:-300px;
+        animation:slideLeft 2s ease-out forwards;
+    }
+
+    .right{
+        right:-300px;
+        animation:slideRight 2s ease-out forwards;
+    }
+
+    @keyframes slideLeft{
+        to{
+            left:calc(50% - 250px);
+        }
+    }
+
+    @keyframes slideRight{
+        to{
+            right:calc(50% - 250px);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img src="left.png" class="piece left" alt="">
+    <img src="right.png" class="piece right" alt="">
+</div>
+
+</body>
+</html>
