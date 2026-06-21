@@ -2,6 +2,7 @@
 <html>
 <head>
 <style>
+
 body{
     margin:0;
     height:100vh;
@@ -12,63 +13,71 @@ body{
     overflow:hidden;
 }
 
+/* center reference */
 .scene{
     position:relative;
-    width:800px;
-    height:500px;
+    width:100vw;
+    height:100vh;
 }
 
-/* Invisible containers */
-.left-piece,
-.right-piece{
+/* shared styles */
+.piece{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
 }
 
-.left-piece{
-    animation:slideLeft 2s forwards;
-}
-
-.right-piece{
-    animation:slideRight 2s forwards;
-}
-
-/* PNG images */
-.left-piece img,
-.right-piece img{
-    width:350px;
+/* image size scales with screen */
+.piece img{
+    width:25vw; /* responsive instead of fixed px */
+    max-width:350px;
+    min-width:180px;
     display:block;
 }
 
-@keyframes slideLeft{
+/* LEFT */
+.left-piece{
+    left:50%;
+    animation:moveLeft 2s forwards ease;
+}
+
+/* RIGHT */
+.right-piece{
+    left:50%;
+    animation:moveRight 2s forwards ease;
+}
+
+/* responsive motion */
+@keyframes moveLeft{
     from{
-        left:-400px;
+        transform:translate(-150%, -50%);
     }
     to{
-        left:160px; /* Adjust this */
+        transform:translate(-55%, -50%);
     }
 }
 
-@keyframes slideRight{
+@keyframes moveRight{
     from{
-        left:900px;
+        transform:translate(150%, -50%);
     }
     to{
-        left:300px; /* Adjust this */
+        transform:translate(-45%, -50%);
     }
 }
+
 </style>
 </head>
+
 <body>
 
 <div class="scene">
 
-    <div class="left-piece">
+    <div class="piece left-piece">
         <img src="left.png">
     </div>
 
-    <div class="right-piece">
+    <div class="piece right-piece">
         <img src="right.png">
     </div>
 
