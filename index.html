@@ -1,84 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-
-body{
-    margin:0;
-    height:100%;
-    background:white;
-    overflow:hidden;
-}
-
-/* TRUE CENTER ANCHOR */
-.scene{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    width:600px;
-    height:300px;
-}
-
-/* PIECES */
-.piece{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.piece img{
-    width:300px;
-    display:block;
-}
-
-/* LEFT PIECE */
-.left{
-    right:50%; /* anchor from center going left */
-    animation:moveLeft 2s forwards ease;
-}
-
-/* RIGHT PIECE */
-.right{
-    left:50%; /* anchor from center going right */
-    animation:moveRight 2s forwards ease;
-}
-
-/* FINAL POSITIONS */
-@keyframes moveLeft{
-    from{
-        transform:translate(100%, -50%);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Images Meet in Center</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    to{
-        transform:translate(0%, -50%);
-    }
-}
 
-@keyframes moveRight{
-    from{
-        transform:translate(-100%, -50%);
+    body {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      font-family: Arial, sans-serif;
     }
-    to{
-        transform:translate(0%, -50%);
-    }
-}
 
-</style>
+    .stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .image {
+      position: absolute;
+      top: 50%;
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 16px;
+      transform: translateY(-50%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    .left-image {
+      left: -260px;
+      animation-name: slideFromLeft;
+    }
+
+    .right-image {
+      right: -260px;
+      animation-name: slideFromRight;
+    }
+
+    @keyframes slideFromLeft {
+      from {
+        left: -260px;
+      }
+      to {
+        left: calc(50% - 220px);
+      }
+    }
+
+    @keyframes slideFromRight {
+      from {
+        right: -260px;
+      }
+      to {
+        right: calc(50% - 220px);
+      }
+    }
+
+    .title {
+      position: absolute;
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
-
 <body>
+  
 
-<div class="scene">
+    <img
+      src="left.png"
+      alt="Left side image"
+      class="image left-image"
+    />
 
-    <div class="piece left">
-        <img src="left.png">
-    </div>
-
-    <div class="piece right">
-        <img src="right.png">
-    </div>
-
-</div>
-
+    <img
+      src="right.png"
+      alt="Right side image"
+      class="image right-image"
+    />
+  </div>
 </body>
 </html>
