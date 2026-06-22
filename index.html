@@ -2,81 +2,73 @@
 <html>
 <head>
 <style>
-
 body{
     margin:0;
-    padding:0;
-    height:100%;
-    width: 100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     background:white;
     overflow:hidden;
 }
 
-/* center reference */
 .scene{
-    position:absolute;
-    top:100%;
-    left:100%;
-    transform: translate (-50%, -50%);
-    width: 100%;
-    height: 100%;
+    position:relative;
+    width:800px;
+    height:500px;
 }
 
-/* shared styles */
-.piece{
+/* Invisible containers */
+.left-piece,
+.right-piece{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
 }
 
-/* image size scales with screen */
-.piece img{
-    width:clamp(180px, 30vw, 350px)
-}
-
-/* LEFT */
 .left-piece{
-    left:50%;
-    animation:moveLeft 2s forwards ease;
+    animation:slideLeft 2s forwards;
 }
 
-/* RIGHT */
 .right-piece{
-    left:50%;
-    animation:moveRight 2s forwards ease;
+    animation:slideRight 2s forwards;
 }
 
-/* responsive motion */
-@keyframes moveLeft{
+/* PNG images */
+.left-piece img,
+.right-piece img{
+    width:350px;
+    display:block;
+}
+
+@keyframes slideLeft{
     from{
-        transform:translate(-150%, -50%);
+        left:-400px;
     }
     to{
-        transform:translate(-50%, -50%);
+        left:180px; /* Adjust this */
     }
 }
 
-@keyframes moveRight{
+@keyframes slideRight{
     from{
-        transform:translate(150%, -50%);
+        left:900px;
     }
     to{
-        transform:translate(-50%, -50%);
+        left:320px; /* Adjust this */
     }
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="scene">
 
-    <div class="piece left-piece">
+    <div class="left-piece">
         <img src="left.png">
     </div>
 
-    <div class="piece right-piece">
+    <div class="right-piece">
         <img src="right.png">
     </div>
 
