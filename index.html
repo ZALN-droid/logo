@@ -25,6 +25,12 @@
       position: relative;
       width: 100vw;
       height: 100vh;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .stage.fade-out {
+      opacity: 0;
     }
 
     .image {
@@ -51,47 +57,46 @@
     }
 
     @keyframes slideFromLeft {
-      to { left: calc(60% - 220px); }
+      to {
+        left: calc(60% - 220px);
+      }
     }
 
     @keyframes slideFromRight {
-      to { right: calc(60% - 220px); }
+      to {
+        right: calc(60% - 220px);
+      }
     }
-
-    /* ENTER BUTTON */
-    .enter-btn {
-      position: absolute;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      border: 1px solid #000;
-      background: transparent;
-      cursor: pointer;
-      font-family: Arial, sans-serif;
-      letter-spacing: 2px;
-    }
-
-    .enter-btn a {
-      text-decoration: none;
-      color: black;
-    }
-
   </style>
 </head>
 
 <body>
 
-  <div class="stage">
+  <div class="stage" id="stage">
 
     <img src="left.png" class="image left-image" />
     <img src="right.png" class="image right-image" />
 
-    <div class="enter-btn">
-      <a href="index.html">ENTER</a>
-    </div>
-
   </div>
+
+  <script>
+    window.addEventListener("load", () => {
+
+      // wait for images to meet
+      setTimeout(() => {
+
+        // fade out
+        document.getElementById("stage").classList.add("fade-out");
+
+        // then go to next page
+        setTimeout(() => {
+          window.location.href = "https://zaln-droid.github.io/Z-L-Wedding-Invite/";
+        }, 1000);
+
+      }, 2500);
+
+    });
+  </script>
 
 </body>
 </html>
