@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Images Meet in Center</title>
+  <title>Intro</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -18,7 +19,6 @@
       justify-content: center;
       align-items: center;
       background: white;
-      font-family: Arial, sans-serif;
     }
 
     .stage {
@@ -51,49 +51,47 @@
     }
 
     @keyframes slideFromLeft {
-      from {
-        left: -260px;
-      }
-      to {
-        left: calc(60% - 220px);
-      }
+      to { left: calc(60% - 220px); }
     }
 
     @keyframes slideFromRight {
-      from {
-        right: -260px;
-      }
-      to {
-        right: calc(60% - 220px);
-      }
+      to { right: calc(60% - 220px); }
     }
 
-    .title {
+    /* ENTER BUTTON */
+    .enter-btn {
       position: absolute;
-      top: 12%;
+      bottom: 80px;
       left: 50%;
       transform: translateX(-50%);
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 1px;
+      padding: 10px 20px;
+      border: 1px solid #000;
+      background: transparent;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      letter-spacing: 2px;
     }
+
+    .enter-btn a {
+      text-decoration: none;
+      color: black;
+    }
+
   </style>
 </head>
+
 <body>
-  
 
-    <img
-      src="left.png"
-      alt="Left side image"
-      class="image left-image"
-    />
+  <div class="stage">
 
-    <img
-      src="right.png"
-      alt="Right side image"
-      class="image right-image"
-    />
+    <img src="left.png" class="image left-image" />
+    <img src="right.png" class="image right-image" />
+
+    <div class="enter-btn">
+      <a href="index.html">ENTER</a>
+    </div>
+
   </div>
+
 </body>
 </html>
